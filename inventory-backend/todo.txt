@@ -1,0 +1,13 @@
+Back End Parts/Modules
+ 1. Users [Done]
+ 2. Brands [Done]
+ 3. Categories [Done]
+ 4. Customers [Done]
+ 5. Suppliers [Done]
+ 6. Expenses [Done]
+ 7. Products [Done]
+ 8. Purchases [Done]
+ 9. Sales [Done]
+ 10.Returns [Done]
+ 11.Dashboard Summary
+ 12.Reports
