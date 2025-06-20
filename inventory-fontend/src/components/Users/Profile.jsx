@@ -1,8 +1,8 @@
 import React, {useEffect, useRef} from 'react';
-import {GetProfileDetailsRequest, ProfileUpdateRequest, RegistrationRequest} from "../../APIRequest/APIRequest.js";
+import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {ErrorToast, getBase64, IsEmail, IsEmpty, IsMobile, SuccessToast} from "../../helper/FormHelper.js";
-import {useNavigate} from "react-router-dom";
+import {GetProfileDetailsRequest, ProfileUpdateRequest} from "../../APIRequest/UsersAPIRequest.js";
 
 const Profile = () => {
     let emailRef,firstNameRef,lastNameRef,mobileRef,passwordRef,userImgRef,userImgView = useRef()

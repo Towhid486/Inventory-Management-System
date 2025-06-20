@@ -1,6 +1,6 @@
 import React, {Fragment, useRef} from 'react';
 import {ErrorToast, IsEmpty} from "../../helper/FormHelper.js";
-import {RecoverResetPasswordRequest} from "../../APIRequest/APIRequest.js";
+import {RecoverResetPasswordRequest} from "../../APIRequest/UsersAPIRequest.js";
 import {getEmail, getOTP} from "../../helper/SessionHelper.js";
 import {useNavigate} from "react-router-dom";
 

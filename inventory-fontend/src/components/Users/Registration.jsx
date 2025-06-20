@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {ErrorToast, IsEmail, IsEmpty, IsMobile} from "../../helper/FormHelper.js";
-import {RegistrationRequest} from "../../APIRequest/APIRequest.js";
+import {RegistrationRequest} from "../../APIRequest/UsersAPIRequest.js";
 
 const Registration = () => {
     let emailRef,firstNameRef,lastNameRef,mobileRef,passwordRef = useRef()

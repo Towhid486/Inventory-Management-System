@@ -1,1 +1,1 @@
-export const BaseURL = "http://localhost:8080/api/v1";
+export const BaseURL = "https://inventory-backend-pi.vercel.app/api/v1";

@@ -6,7 +6,7 @@ import {RiDashboardLine} from "react-icons/ri";
 import {BsListNested} from "react-icons/bs";
 import {MdOutlineCancelPresentation, MdOutlineFlightClass} from "react-icons/md";
 
-import logo from "../../assets/logo.svg"
+import logo from "../../assets/logo.png"
 import {getUserDetails, removeSessions} from "../../helper/SessionHelper.js";
 
 const MasterLayout = (props) => {

@@ -1,7 +1,7 @@
 import React, {Fragment, useRef} from 'react';
 import {Link} from "react-router-dom";
 import {ErrorToast, IsEmail, IsEmpty} from "../../helper/FormHelper.js";
-import {LoginRequest} from "../../APIRequest/APIRequest.js";
+import {LoginRequest} from "../../APIRequest/UsersAPIRequest.js";
 
 const Login = () => {
     let passRef,emailRef = useRef();

@@ -13,9 +13,7 @@ const hpp = require('hpp');
 const cors = require('cors');
 require('dotenv').config();
 
-// Database Lib Import
-const mongoose = require('mongoose');
-
+// MongoDB Database Connection
 
 // Security Middleware Implement
 app.use(cors())
@@ -34,13 +32,8 @@ app.use(bodyParser.json())
 const limiter =  rateLimit({windowMs: 15*60*1000, max: 3000})
 app.use(limiter)
 
-// MongoDB Database Connection
-let DATABASE = process.env.DB
-mongoose.connect(DATABASE,{autoIndex:true}).then((res) =>{
-    console.log("Database Connected");
-}).catch((err) =>{
-    console.log(err)
-})
+app.get('/', (req,res)=>res.send("API Working"))
+
 
 app.set('etag', false);
 // Routing Implement

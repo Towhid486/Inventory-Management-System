@@ -1,7 +1,7 @@
 import React, {Fragment, useRef} from 'react';
 import {useNavigate} from "react-router-dom";
 import {ErrorToast, IsEmail} from "../../helper/FormHelper.js";
-import {RecoverVerifyEmailRequest} from "../../APIRequest/APIRequest.js";
+import {RecoverVerifyEmailRequest} from "../../APIRequest/UsersAPIRequest.js";
 
 const SendOTP = () => {
 
