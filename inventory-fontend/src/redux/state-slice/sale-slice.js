@@ -3,13 +3,17 @@ import {createSlice} from "@reduxjs/toolkit";
 export const saleSlice = createSlice({
     name:'sale',
     initialState:{
-        value:[]
+        List:[],
+        ListTotal:0,
     },
     reducers:{
-        SetSale:(state,action)=>{
-            state.value = action.payload;
+        SetSaleList:(state,action)=>{
+            state.List = action.payload;
+        },
+        SetSaleListTotal:(state,action)=>{
+            state.ListTotal = action.payload;
         },
     }
 })
-export const {SetSale} = saleSlice.actions;
+export const {SetSaleList,SetSaleListTotal} = saleSlice.actions;
 export default saleSlice.reducer;

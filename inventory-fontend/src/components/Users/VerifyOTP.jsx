@@ -44,7 +44,7 @@ const VerifyOTP = () => {
                     <div className="col-md-7 col-lg-6 center-screen">
                         <div className="card w-75 p-4">
                             <div className="card-body text-start">
-                                <h4 className='fw-semibold'>OTP Verification</h4>
+                                <h4 className='fw-semibold'>OTP VERIFICATION</h4>
                                 <p>A 6 Digit Verification code has been sent to your email address.</p>
                                 <ReactCodeInput onChange={(value)=>setOTP(value)} inputStyle={defaultInputStyle} fields={6} />
                                 <br />

@@ -3,13 +3,17 @@ import {createSlice} from "@reduxjs/toolkit";
 export const expensetypeSlice = createSlice({
     name:'expensetype',
     initialState:{
-        value:[]
+        List:[],
+        ListTotal:0,
     },
     reducers:{
-        SetExpenseType:(state,action)=>{
-            state.value = action.payload;
+        SetExpenseTypeList:(state,action)=>{
+            state.List = action.payload;
+        },
+        SetExpenseTypeListTotal:(state,action)=>{
+            state.ListTotal = action.payload;
         },
     }
 })
-export const {SetExpenseType} = expensetypeSlice.actions;
+export const {SetExpenseTypeList,SetExpenseTypeListTotal} = expensetypeSlice.actions;
 export default expensetypeSlice.reducer;

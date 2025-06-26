@@ -1,10 +1,11 @@
 import React from 'react';
+import NotFound from "../../components/NotFound/NotFound.jsx";
 
 const Page404 = () => {
     return (
-        <div>
-        
-        </div>
+        <>
+            <NotFound/>
+        </>
     );
 };
 

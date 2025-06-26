@@ -3,13 +3,17 @@ import {createSlice} from "@reduxjs/toolkit";
 export const purchaseSlice = createSlice({
     name:'purchase',
     initialState:{
-        value:[]
+        List:[],
+        ListTotal:0,
     },
     reducers:{
-        SetPurchase:(state,action)=>{
-            state.value = action.payload;
+        SetPurchaseList:(state,action)=>{
+            state.List = action.payload;
+        },
+        SetPurchaseListTotal:(state,action)=>{
+            state.ListTotal = action.payload;
         },
     }
 })
-export const {SetPurchase} = purchaseSlice.actions;
+export const {SetPurchaseList,SetPurchaseListTotal} = purchaseSlice.actions;
 export default purchaseSlice.reducer;

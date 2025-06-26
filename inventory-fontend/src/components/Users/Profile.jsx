@@ -42,7 +42,6 @@ const Profile = () => {
         } else {
             let data = await ProfileUpdateRequest(email, firstName, lastName, mobile, password, photo)
             if (data?.status) {
-                SuccessToast(data?.message)
                 navigate('/')
             }
         }

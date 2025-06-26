@@ -3,13 +3,17 @@ import {createSlice} from "@reduxjs/toolkit";
 export const brandSlice = createSlice({
     name:'brand',
     initialState:{
-        value:[]
+        List:[],
+        ListTotal:0,
     },
     reducers:{
-        SetBrand:(state,action)=>{
-            state.value = action.payload;
+        SetBrandList:(state,action)=>{
+            state.List = action.payload;
+        },
+        SetBrandListTotal:(state,action)=>{
+            state.ListTotal = action.payload;
         },
     }
 })
-export const {SetBrand} = brandSlice.actions;
+export const {SetBrandList,SetBrandListTotal} = brandSlice.actions;
 export default brandSlice.reducer;

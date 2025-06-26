@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {Fragment, Suspense} from 'react';
+import MasterLayout from "../../components/MasterLayout/Master-Layout.jsx";
+import LazyLoader from "../../components/MasterLayout/LazyLoader.jsx";
+import CustomerCreateUpdate from "../../components/Customer/CustomerCreateUpdate.jsx";
 
 const CustomerCreateUpdatePage = () => {
     return (
-        <div>
-        
-        </div>
+        <Fragment>
+            <MasterLayout>
+                <Suspense fallback={<LazyLoader/>}>
+                    <CustomerCreateUpdate/>
+                </Suspense>
+            </MasterLayout>
+        </Fragment>
     );
 };
 

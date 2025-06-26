@@ -3,13 +3,17 @@ import {createSlice} from "@reduxjs/toolkit";
 export const categorySlice = createSlice({
     name:'category',
     initialState:{
-        value:[]
+        List:[],
+        ListTotal:0,
     },
     reducers:{
-        SetCategory:(state,action)=>{
-            state.value = action.payload;
+        SetCategoryList:(state,action)=>{
+            state.List = action.payload;
+        },
+        SetCategoryListTotal:(state,action)=>{
+            state.ListTotal = action.payload;
         },
     }
 })
-export const {SetCategory} = categorySlice.actions;
+export const {SetCategoryList,SetCategoryListTotal} = categorySlice.actions;
 export default categorySlice.reducer;

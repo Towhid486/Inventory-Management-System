@@ -29,7 +29,7 @@ const Login = () => {
                     <div className="col-md-7 col-lg-6 center-screen">
                         <div className="card w-75 p-4 shadow border-0 rounded-4">
                             <div className="card-body">
-                                <h5 className='fw-bold text-start'>SIGN IN</h5>
+                                <h3 className=''>SIGN IN</h3>
                                 <br/>
                                 <input ref={(input)=>emailRef=input} placeholder="User Email" className="form-control animated fadeInUp" type="email"/>
                                 <br/>
@@ -37,9 +37,9 @@ const Login = () => {
                                 <br/>
                                 <button onClick={SubmitLogin} className="btn w-100 animated fadeInUp float-end Btn-bg mb-3 fw-semibold">Next</button>
                                 <div className="d-flex w-100 justify-content-end">
-                                    <Link className="text-center text-light-emphasis animated fadeInUp fw-semibold px-2 border-end border-2 border-dark-subtle" to="/registration">Sign Up</Link>
+                                    <Link className="text-center text-light-emphasis animated fadeInUp fw-bold px-2 border-end border-2 border-dark-subtle" to="/registration">Sign Up</Link>
                                     <br/>
-                                    <Link className="text-center text-light-emphasis animated fadeInUp fw-semibold px-2" to="/forgetpass">Forget Password</Link>
+                                    <Link className="text-center text-light-emphasis animated fadeInUp fw-bold px-2" to="/forgetpass">Forget Password</Link>
                                 </div>
                             </div>
                         </div>

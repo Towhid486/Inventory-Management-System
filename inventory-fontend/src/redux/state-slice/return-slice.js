@@ -1,15 +1,19 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 export const returnSlice = createSlice({
-    name:'report',
+    name:'return',
     initialState:{
-        value:[]
+        List:[],
+        ListTotal:0,
     },
     reducers:{
-        SetReturn:(state,action)=>{
-            state.value = action.payload;
+        SetReturnList:(state,action)=>{
+            state.List = action.payload;
+        },
+        SetReturnListTotal:(state,action)=>{
+            state.ListTotal = action.payload;
         },
     }
 })
-export const {SetReturn} = returnSlice.actions;
+export const {SetReturnList,SetReturnListTotal} = returnSlice.actions;
 export default returnSlice.reducer;
