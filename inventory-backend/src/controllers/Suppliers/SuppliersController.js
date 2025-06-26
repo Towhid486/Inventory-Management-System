@@ -41,8 +41,8 @@ exports.SuppliersDropDown = async (req, res) => {
 exports.DeleteSupplier = async (req, res) => {
     let DeleteID = req.params.id;
     const ObjectID = mongoose.Types.ObjectId;
-
-    let CheckAssociate = await CheckAssociateService({SupplierID:ObjectID(DeleteID)},PurchasesModel)
+    let Id = new ObjectID(DeleteID)
+    let CheckAssociate = await CheckAssociateService({SupplierID:Id},PurchasesModel)
     if(CheckAssociate){
         res.status(200).json({status:"Associate", data: "Associate with Purchase!"})
     }

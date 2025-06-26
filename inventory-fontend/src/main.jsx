@@ -6,7 +6,7 @@ import store from "./redux/store/store.js";
 
 import "react-bootstrap"
 import "./assets/css/bootstrap.css"
-import './assets/css/style.css'
+import "./assets/css/style.css"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

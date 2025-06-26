@@ -43,10 +43,10 @@ exports.ProductsDetailsByID = async (req, res) => {
 exports.DeleteProducts = async (req, res) => {
     let DeleteID = req.params.id;
     const ObjectID = mongoose.Types.ObjectId;
-
-    let CheckReturnAssociate = await CheckAssociateService({ProductID:ObjectID(DeleteID)},ReturnProductsModel)
-    let CheckPurchaseAssociate = await CheckAssociateService({ProductID:ObjectID(DeleteID)},PurchaseProductsModel)
-    let CheckSaleAssociate = await CheckAssociateService({ProductID:ObjectID(DeleteID)},SaleProductsModel)
+    let Id = new ObjectID(DeleteID)
+    let CheckReturnAssociate = await CheckAssociateService({ProductID:Id},ReturnProductsModel)
+    let CheckPurchaseAssociate = await CheckAssociateService({ProductID:Id},PurchaseProductsModel)
+    let CheckSaleAssociate = await CheckAssociateService({ProductID:Id},SaleProductsModel)
 
     if(CheckReturnAssociate){
         res.status(200).json({status:"Associate", data: "Associate with Return!"})

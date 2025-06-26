@@ -39,8 +39,8 @@ exports.BrandDropDown = async (req, res) => {
 exports.DeleteBrand = async (req, res) => {
     let DeleteID = req.params.id;
     const ObjectID = mongoose.Types.ObjectId;
-
-    let CheckAssociate = await CheckAssociateService({BrandID:ObjectID(DeleteID)},ProductsModel)
+    let Id = new ObjectID(DeleteID);
+    let CheckAssociate = await CheckAssociateService({BrandID:Id},ProductsModel)
     if(CheckAssociate){
         res.status(200).json({status:"Associate", data: "Associate with Product"})
     }
