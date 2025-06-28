@@ -4,7 +4,8 @@ import {useNavigate} from "react-router-dom";
 import {CreateExpenseTypeRequest, FillExpenseTypeFormRequest} from "../../APIRequest/ExpenseTypeAPIRequest";
 import {ErrorToast,IsEmpty} from "../../helper/FormHelper";
 import store from "../../redux/store/store";
-import {OnChangeExpenseTypeInput} from "../../redux/state-slice/expensetype-slice";
+import {OnChangeExpenseTypeInput, ResetExpenseTypeFormValue} from "../../redux/state-slice/expensetype-slice";
+import {ResetFormValue} from "../../redux/state-slice/supplier-slice.js";
 
 const ExpenseTypeCreateUpdate = () => {
     
@@ -20,6 +21,8 @@ const ExpenseTypeCreateUpdate = () => {
             (async () => {
                 await FillExpenseTypeFormRequest(id);
             })();
+        }else{
+            store.dispatch(ResetExpenseTypeFormValue())
         }
     },[])
     
@@ -47,8 +50,8 @@ const ExpenseTypeCreateUpdate = () => {
                             <div className="row">
                                 {
                                     ObjectID !== 0
-                                        ? <h5>Edit Expens Type</h5>
-                                        : <h5>Create Expens Type</h5>
+                                        ? <h5>Edit Expense Type</h5>
+                                        : <h5>Create Expense Type</h5>
                                 }
                                 <hr className='bg-light'/>
                                 {

@@ -80,17 +80,17 @@ export const FillExpenseTypeFormRequest = async (ObjectID) =>{
         catchBlockHandler(res)
     }
 }
-export const DeleteExpenseTypeRequest = async (SupplierID) =>{
+export const DeleteExpenseTypeRequest = async (ID) =>{
     try{
         store.dispatch(ShowLoader())
-        let URL = `${BaseURL}/DeleteSupplier/${SupplierID}`
+        let URL = `${BaseURL}/DeleteExpenseType/${ID}`
         let {data} = await axios.get(URL,AxiosHeader)
         store.dispatch(HideLoader())
         if(data.status==="Associate"){
             ErrorToast(data['data'])
         }
         else if(data.status===true){
-            SuccessToast("Supplier Delete Successful")
+            SuccessToast("ExpenseType Delete Successful")
             return data;
         }
         else{

@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const DataModel = require('../../models/Expenses/ExpenseTypesModel')
 const ExpenseModel = require('../../models/Expenses/ExpensesModel')
 const CreateService = require('../../services/common/CreateService')
