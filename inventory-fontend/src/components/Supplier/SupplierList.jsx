@@ -3,7 +3,8 @@ import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {AiOutlineDelete, AiOutlineEdit, AiOutlineEye} from "react-icons/ai";
 import ReactPaginate from "react-paginate";
-import {SupplierListRequest} from "../../APIRequest/SupplierAPIRequest";
+import {DeleteSupplierRequest, SupplierListRequest} from "../../APIRequest/SupplierAPIRequest";
+import {DeleteAlert} from "../../helper/DeleteAlert.js";
 
 const SupplierList = () => {
     
@@ -119,9 +120,9 @@ const SupplierList = () => {
                                                                     <button onClick={()=>DeleteItem(item._id)} className="btn btn-outline-light text-danger p-2 mb-0 btn-sm ms-2">
                                                                         <AiOutlineDelete size={15} />
                                                                     </button>
-                                                                    <button className="btn btn-outline-light text-success p-2 mb-0 btn-sm ms-2">
-                                                                        <AiOutlineEye size={15} />
-                                                                    </button>
+                                                                    {/*<button className="btn btn-outline-light text-success p-2 mb-0 btn-sm ms-2">*/}
+                                                                    {/*    <AiOutlineEye size={15} />*/}
+                                                                    {/*</button>*/}
                                                                 </td>
                                                             </tr>
                                                         )

@@ -84,7 +84,6 @@ export const FillCustomerFormRequest = async (ObjectID) =>{
     }
 }
 
-
 export const DeleteCustomerRequest = async (CustomerID) =>{
     try{
         store.dispatch(ShowLoader())
@@ -94,7 +93,7 @@ export const DeleteCustomerRequest = async (CustomerID) =>{
         if(data.status==="Associate"){
             ErrorToast(data['data'])
         }
-        if(data.status===true){
+        else if(data.status===true){
             SuccessToast("Customer Delete Successful")
             return data;
         }

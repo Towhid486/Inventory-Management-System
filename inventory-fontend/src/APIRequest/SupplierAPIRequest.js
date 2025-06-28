@@ -1,10 +1,15 @@
 import axios from "axios";
-import {ErrorToast} from "../helper/FormHelper.js";
+import {ErrorToast, SuccessToast} from "../helper/FormHelper.js";
 import store from "../redux/store/store.js";
 import {HideLoader, ShowLoader} from "../redux/state-slice/settings-slice.js";
 import {getToken} from "../helper/SessionHelper.js";
 import {BaseURL} from "../helper/Config.js";
-import {SetSupplierList, SetSupplierListTotal} from "../redux/state-slice/supplier-slice.js";
+import {
+    SetSupplierList,
+    SetSupplierListTotal,
+    OnChangeSupplierInput,
+    ResetFormValue
+} from "../redux/state-slice/supplier-slice.js";
 
 const AxiosHeader = {headers:{token:getToken()}}
 
@@ -30,5 +35,75 @@ export const SupplierListRequest = async (pageNo,perPage,searchKeyword) =>{
         store.dispatch(HideLoader())
         console.log(e.toString())
         ErrorToast("Something went wrong")
+    }
+}
+
+export const CreateUpdateSupplierRequest = async (PostBody,ObjectID) =>{
+    try{
+        store.dispatch(ShowLoader())
+        let URL = `${BaseURL}/CreateSuppliers`
+        if(ObjectID!==0){
+            URL = `${BaseURL}/UpdateSuppliers/${ObjectID}`
+        }
+        let {data} = await axios.post(URL,PostBody,AxiosHeader)
+        store.dispatch(HideLoader())
+        if(data.status){
+            SuccessToast("Request Successful")
+            store.dispatch(ResetFormValue())
+        }else{
+            ErrorToast("Request Fail ! Try again")
+        }
+        return data;
+    }catch (e) {
+        store.dispatch(HideLoader())
+        console.log(e.toString())
+        ErrorToast("Something went wrong")
+    }
+}
+
+export const FillSupplierFormRequest = async (ObjectID) =>{
+    try{
+        store.dispatch(ShowLoader())
+        let URL = `${BaseURL}/SuppliersDetailsByID/${ObjectID}`
+        let {data} = await axios.get(URL,AxiosHeader)
+        store.dispatch(HideLoader())
+        if(data.status){
+            let FormValue = data?.data[0];
+            store.dispatch(OnChangeSupplierInput({Name:"SupplierName", Value:FormValue['SupplierName']}))
+            store.dispatch(OnChangeSupplierInput({Name:"Phone", Value:FormValue['Phone']}))
+            store.dispatch(OnChangeSupplierInput({Name:"Email", Value:FormValue['Email']}))
+            store.dispatch(OnChangeSupplierInput({Name:"Address", Value:FormValue['Address']}))
+        }else{
+            ErrorToast("Request Fail ! Try again")
+        }
+        return data;
+    }catch (e) {
+        store.dispatch(HideLoader())
+        console.log(e.toString())
+        ErrorToast("Something went wrong")
+    }
+}
+
+export const DeleteSupplierRequest = async (SupplierID) =>{
+    try{
+        store.dispatch(ShowLoader())
+        let URL = `${BaseURL}/DeleteSupplier/${SupplierID}`
+        let {data} = await axios.get(URL,AxiosHeader)
+        store.dispatch(HideLoader())
+        if(data.status==="Associate"){
+            ErrorToast(data['data'])
+        }
+        else if(data.status===true){
+            SuccessToast("Supplier Delete Successful")
+            return data;
+        }
+        else{
+            ErrorToast("Request Fail ! Try Again")
+        }
+    }
+    catch (e) {
+        store.dispatch(HideLoader())
+        ErrorToast("Something went wrong")
+        console.log(e.toString())
     }
 }

@@ -22,7 +22,7 @@ export const customerSlice = createSlice({
         OnChangeCustomerInput:(state,action)=>{
             state.FormValue[`${action.payload.Name}`] = action.payload.Value;
         },
-        ResetFormValue:(state,action)=>{
+        ResetFormValue:(state)=>{
             Object.keys(state.FormValue).forEach((i) => state.FormValue[i] = "")
         }
     }

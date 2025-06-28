@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import store from "../../redux/store/store.js";
-import {OnChangeCustomerInput} from "../../redux/state-slice/customer-slice.js";
+import {OnChangeCustomerInput, ResetFormValue} from "../../redux/state-slice/customer-slice.js";
 import {CreateUpdateCustomerRequest, FillCustomerFormRequest} from "../../APIRequest/CustomerAPIRequest.js";
 import {IsEmpty, ErrorToast, IsEmail, IsMobile} from "../../helper/FormHelper.js";
 import {useNavigate} from "react-router-dom";
@@ -20,6 +20,8 @@ const CustomerCreateUpdate = () => {
             (async()=>{
                 await FillCustomerFormRequest(id);
             })()
+        }else{
+            store.dispatch(ResetFormValue())
         }
     }, []);
     
