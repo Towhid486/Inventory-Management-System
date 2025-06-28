@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {AiOutlineDelete, AiOutlineEdit} from "react-icons/ai";
 import ReactPaginate from "react-paginate";
 import moment from "moment/moment";
+import {DeleteAlert} from "../../helper/DeleteAlert.js";
 
 const ExpenseTypeList = () => {
     let [searchKeyword,setSearchKeyword]=useState("0");
@@ -45,13 +46,13 @@ const ExpenseTypeList = () => {
     }
     
     const DeleteItem = async (id) => {
-        // let Result = await DeleteAlert();
-        // if(Result.isConfirmed){
-        //     let DeleteResult= await DeleteExpenseTypeRequest(id)
-        //     if(DeleteResult){
-        //         await ExpenseTypeListRequest(1,perPage,searchKeyword);
-        //     }
-        // }
+        let Result = await DeleteAlert();
+        if(Result.isConfirmed){
+            let DeleteResult= await DeleteExpenseTypeRequest(id)
+            if(DeleteResult){
+                await ExpenseTypeListRequest(1,perPage,searchKeyword);
+            }
+        }
     }
     
     

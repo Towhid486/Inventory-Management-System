@@ -67,6 +67,7 @@ router.post('/UpdateExpenseTypes/:id',AuthVerification,ExpenseTypesController.Up
 router.get('/ExpenseTypesList/:pageNo/:perPage/:searchKeyword',AuthVerification,ExpenseTypesController.ExpenseTypesList)
 router.get('/ExpenseTypesDropDown',AuthVerification,ExpenseTypesController.ExpenseTypesDropDown)
 router.get('/ExpenseTypesDetailsByID/:id',AuthVerification,ExpenseTypesController.ExpenseTypesDetailsByID)
+router.get('/DeleteExpenseType/:id',AuthVerification,ExpenseTypesController.DeleteExpenseType)
 
 
 

@@ -2,7 +2,7 @@ import axios from "axios";
 import {ErrorToast, SuccessToast} from "../helper/FormHelper.js";
 import store from "../redux/store/store.js";
 import {HideLoader, ShowLoader} from "../redux/state-slice/settings-slice.js";
-import {getToken} from "../helper/SessionHelper.js";
+import {catchBlockHandler, getToken} from "../helper/SessionHelper.js";
 import {BaseURL} from "../helper/Config.js";
 import {
     SetSupplierList,
@@ -33,8 +33,8 @@ export const SupplierListRequest = async (pageNo,perPage,searchKeyword) =>{
         }
     }catch (e) {
         store.dispatch(HideLoader())
-        console.log(e.toString())
-        ErrorToast("Something went wrong")
+        const res = e?.response;
+        catchBlockHandler(res)
     }
 }
 
@@ -56,8 +56,8 @@ export const CreateUpdateSupplierRequest = async (PostBody,ObjectID) =>{
         return data;
     }catch (e) {
         store.dispatch(HideLoader())
-        console.log(e.toString())
-        ErrorToast("Something went wrong")
+        const res = e?.response;
+        catchBlockHandler(res)
     }
 }
 
@@ -79,8 +79,8 @@ export const FillSupplierFormRequest = async (ObjectID) =>{
         return data;
     }catch (e) {
         store.dispatch(HideLoader())
-        console.log(e.toString())
-        ErrorToast("Something went wrong")
+        const res = e?.response;
+        catchBlockHandler(res)
     }
 }
 
@@ -103,7 +103,7 @@ export const DeleteSupplierRequest = async (SupplierID) =>{
     }
     catch (e) {
         store.dispatch(HideLoader())
-        ErrorToast("Something went wrong")
-        console.log(e.toString())
+        const res = e?.response;
+        catchBlockHandler(res)
     }
 }

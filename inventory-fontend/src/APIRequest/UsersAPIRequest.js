@@ -2,7 +2,14 @@ import axios from "axios";
 import {ErrorToast, SuccessToast} from "../helper/FormHelper.js";
 import store from "../redux/store/store.js";
 import {HideLoader, ShowLoader} from "../redux/state-slice/settings-slice.js";
-import {getToken, setEmail, setOTP, setToken, setUserDetails} from "../helper/SessionHelper.js";
+import {
+    catchBlockHandler,
+    getToken,
+    setEmail,
+    setOTP,
+    setToken,
+    setUserDetails
+} from "../helper/SessionHelper.js";
 import {SetProfile} from "../redux/state-slice/profile-slice.js";
 import {BaseURL} from "../helper/Config.js";
 
@@ -56,13 +63,14 @@ export const GetProfileDetailsRequest = async () =>{
         store.dispatch(HideLoader())
         if(data.status){
             store.dispatch(SetProfile(data?.data[0]))
-        }else{
+        }
+        else{
             ErrorToast("Something went wrong")
         }
     }catch (e) {
         store.dispatch(HideLoader())
-        console.log(e.toString())
-        ErrorToast("Something went wrong")
+        const res = e?.response;
+        catchBlockHandler(res)
     }
 }
 export const ProfileUpdateRequest = async (email,firstName,lastName,mobile,password,photo) =>{
@@ -83,8 +91,8 @@ export const ProfileUpdateRequest = async (email,firstName,lastName,mobile,passw
         return data;
     }catch (e) {
         store.dispatch(HideLoader())
-        ErrorToast("Something went wrong")
-        console.log(e.toString())
+        const res = e?.response;
+        catchBlockHandler(res)
     }
 }
 

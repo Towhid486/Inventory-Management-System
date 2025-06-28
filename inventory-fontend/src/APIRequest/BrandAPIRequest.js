@@ -2,7 +2,7 @@ import axios from "axios";
 import {ErrorToast} from "../helper/FormHelper.js";
 import store from "../redux/store/store.js";
 import {HideLoader, ShowLoader} from "../redux/state-slice/settings-slice.js";
-import {getToken} from "../helper/SessionHelper.js";
+import {catchBlockHandler, getToken} from "../helper/SessionHelper.js";
 import {BaseURL} from "../helper/Config.js";
 import {SetBrandList, SetBrandListTotal} from "../redux/state-slice/brand-slice.js";
 
@@ -28,7 +28,7 @@ export const BrandListRequest = async (pageNo,perPage,searchKeyword) =>{
         }
     }catch (e) {
         store.dispatch(HideLoader())
-        console.log(e.toString())
-        ErrorToast("Something went wrong")
+        const res = e?.response;
+        catchBlockHandler(res)
     }
 }

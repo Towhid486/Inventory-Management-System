@@ -1,10 +1,15 @@
 import axios from "axios";
-import {ErrorToast} from "../helper/FormHelper.js";
+import {ErrorToast, SuccessToast} from "../helper/FormHelper.js";
 import store from "../redux/store/store.js";
 import {HideLoader, ShowLoader} from "../redux/state-slice/settings-slice.js";
-import {getToken} from "../helper/SessionHelper.js";
+import {catchBlockHandler, getToken} from "../helper/SessionHelper.js";
 import {BaseURL} from "../helper/Config.js";
-import {SetExpenseTypeList, SetExpenseTypeListTotal} from "../redux/state-slice/expensetype-slice.js";
+import {
+    OnChangeExpenseTypeInput,
+    SetExpenseTypeList,
+    SetExpenseTypeListTotal
+} from "../redux/state-slice/expensetype-slice.js";
+import {OnChangeSupplierInput, ResetFormValue} from "../redux/state-slice/supplier-slice.js";
 
 const AxiosHeader = {headers:{token:getToken()}}
 
@@ -28,7 +33,73 @@ export const ExpenseTypeListRequest = async (pageNo,perPage,searchKeyword) =>{
         }
     }catch (e) {
         store.dispatch(HideLoader())
-        console.log(e.toString())
-        ErrorToast("Something went wrong")
+        const res = e?.response;
+        catchBlockHandler(res)
+    }
+}
+
+export const CreateExpenseTypeRequest = async (PostBody,ObjectID) =>{
+    try{
+        store.dispatch(ShowLoader())
+        let URL = `${BaseURL}/CreateExpenseTypes`
+        if(ObjectID!==0){
+            URL = `${BaseURL}/UpdateExpenseTypes/${ObjectID}`
+        }
+        let {data} = await axios.post(URL,PostBody,AxiosHeader)
+        store.dispatch(HideLoader())
+        if(data.status){
+            SuccessToast("Request Successful")
+            store.dispatch(ResetFormValue())
+        }else{
+            ErrorToast("Request Fail ! Try again")
+        }
+        return data;
+    }catch (e) {
+        store.dispatch(HideLoader())
+        const res = e?.response;
+        catchBlockHandler(res)
+    }
+}
+
+export const FillExpenseTypeFormRequest = async (ObjectID) =>{
+    try{
+        store.dispatch(ShowLoader())
+        let URL = `${BaseURL}/ExpenseTypesDetailsByID/${ObjectID}`
+        let {data} = await axios.get(URL,AxiosHeader)
+        store.dispatch(HideLoader())
+        if(data.status){
+            let FormValue = data?.data[0];
+            store.dispatch(OnChangeExpenseTypeInput({Name:"Name", Value:FormValue['Name']}))
+        }else{
+            ErrorToast("Request Fail ! Try again")
+        }
+        return data;
+    }catch (e) {
+        store.dispatch(HideLoader())
+        const res = e?.response;
+        catchBlockHandler(res)
+    }
+}
+export const DeleteExpenseTypeRequest = async (SupplierID) =>{
+    try{
+        store.dispatch(ShowLoader())
+        let URL = `${BaseURL}/DeleteSupplier/${SupplierID}`
+        let {data} = await axios.get(URL,AxiosHeader)
+        store.dispatch(HideLoader())
+        if(data.status==="Associate"){
+            ErrorToast(data['data'])
+        }
+        else if(data.status===true){
+            SuccessToast("Supplier Delete Successful")
+            return data;
+        }
+        else{
+            ErrorToast("Request Fail ! Try Again")
+        }
+    }
+    catch (e) {
+        store.dispatch(HideLoader())
+        const res = e?.response;
+        catchBlockHandler(res)
     }
 }

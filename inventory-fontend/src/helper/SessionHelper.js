@@ -1,3 +1,5 @@
+import {ErrorToast} from "./FormHelper.js";
+
 class SessionHelper {
 
     setToken(token){
@@ -31,5 +33,15 @@ class SessionHelper {
         localStorage.clear();
         window.location.href="/login"
     }
+    
+    catchBlockHandler=(res)=>{
+        if (res?.status === 401 && res?.data?.message === "Token expired") {
+            ErrorToast("Session Expired! Sign In Please");
+            this.removeSessions();
+        } else {
+            console.log(res);
+            ErrorToast("Something went wrong");
+        }
+    }
 }
-export const {setToken,getToken,setEmail,getEmail,setOTP,getOTP,setUserDetails,getUserDetails,removeSessions} = new SessionHelper();
+export const {setToken,getToken,catchBlockHandler,setEmail,getEmail,setOTP,getOTP,setUserDetails,getUserDetails,removeSessions} = new SessionHelper();
