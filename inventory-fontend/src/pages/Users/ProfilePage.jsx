@@ -1,6 +1,6 @@
 import React, {Fragment, lazy, Suspense} from 'react';
 import MasterLayout from "../../components/MasterLayout/MasterLayout.jsx";
-import LazyLoader from "../../components/masterLayout/LazyLoader.jsx";
+import LazyLoader from "../../components/MasterLayout/LazyLoader.jsx";
 const Profile = lazy(() => import("../../components/Users/Profile.jsx"))
 
 const ProfilePage = () => {

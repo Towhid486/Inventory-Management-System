@@ -1,6 +1,6 @@
 import React, {Fragment, Suspense} from 'react';
-import LazyLoader from "../../components/masterLayout/LazyLoader.jsx";
 import SendOTP from "../../components/Users/SendOTP.jsx";
+import LazyLoader from "../../components/MasterLayout/LazyLoader.jsx";
 
 const SendOTPPage = () => {
     return (

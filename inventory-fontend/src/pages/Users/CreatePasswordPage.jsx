@@ -1,6 +1,6 @@
 import React, {Fragment, Suspense} from 'react';
-import LazyLoader from "../../components/masterLayout/LazyLoader.jsx";
 import CreatePassword from "../../components/Users/CreatePassword.jsx";
+import LazyLoader from "../../components/MasterLayout/LazyLoader.jsx";
 
 const CreatePasswordPage = () => {
     return (
