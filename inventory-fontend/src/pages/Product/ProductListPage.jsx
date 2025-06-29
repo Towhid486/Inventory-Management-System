@@ -1,5 +1,5 @@
 import React, {Fragment, Suspense} from 'react';
-import MasterLayout from "../../components/MasterLayout/Master-Layout.jsx";
+import MasterLayout from "../../components/MasterLayout/MasterLayout.jsx";
 import LazyLoader from "../../components/MasterLayout/LazyLoader.jsx";
 import ProductList from "../../components/Product/ProductList.jsx";
 

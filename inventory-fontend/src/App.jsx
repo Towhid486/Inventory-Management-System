@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import FullScreenLoader from "./components/masterLayout/FullScreen-Loader.jsx";
+import FullScreenLoader from "./components/MasterLayout/FullScreenLoader.jsx";
 import {Toaster} from "react-hot-toast";
 import {getToken} from "./helper/SessionHelper.js";
 import BrandCreateUpdatePage from "./pages/Brand/BrandCreateUpdatePage.jsx";

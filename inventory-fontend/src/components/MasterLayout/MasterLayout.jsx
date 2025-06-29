@@ -308,7 +308,7 @@ const MasterLayout = (props) => {
                     {sidebarItems.map((item, index) => {
                         return item.subMenu.length !== 0 ? (
                             <Accordion.Item
-                                key={index.toString()}
+                                key={index}
                                 eventKey={`${index}`}
                                 className="mt-2"
                             >
@@ -321,7 +321,7 @@ const MasterLayout = (props) => {
                                 <Accordion.Body>
                                     {item.subMenu.map((subItem, index) => (
                                         <NavLink
-                                            key={index.toString()}
+                                            key={index}
                                             className={(navData) =>
                                                 navData.isActive
                                                     ? 'side-bar-subitem-active side-bar-subitem '

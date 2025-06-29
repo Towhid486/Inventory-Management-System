@@ -1,5 +1,5 @@
 import React, {Fragment, lazy, Suspense} from 'react';
-import MasterLayout from "../../components/masterLayout/Master-Layout.jsx";
+import MasterLayout from "../../components/MasterLayout/MasterLayout.jsx";
 import LazyLoader from "../../components/masterLayout/LazyLoader.jsx";
 import {getToken} from "../../helper/SessionHelper.js";
 import {useNavigate} from "react-router-dom";
