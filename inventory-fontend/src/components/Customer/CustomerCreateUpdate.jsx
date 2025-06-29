@@ -59,31 +59,31 @@ const CustomerCreateUpdate = () => {
                                     {
                                         ObjectID !== 0
                                             ?
-                                            <div className='col-4 p-2'>
+                                            <div className='col-12 col-md-4 p-2'>
                                                 <label className='form-label'>Customer ID</label>
                                                 <input value={ObjectID} readOnly={true} className='form-control form-control-sm' type='text' />
                                             </div>
                                             : ""
                                     }
-                                    <div className='col-4 p-2'>
+                                    <div className='col-12 col-md-4 p-2'>
                                         <label className='form-label'>Customer Name</label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"CustomerName",Value:e.target.value}))}} value={FormValue.CustomerName} className='form-control form-control-sm' type='text' />
                                     </div>
-                                    <div className='col-4 p-2'>
+                                    <div className='col-12 col-md-4 p-2'>
                                         <label className='form-label'>Mobile No</label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"Phone",Value:e.target.value}))}} value={FormValue.Phone} className='form-control form-control-sm' type='text' />
                                     </div>
-                                    <div className='col-4 p-2'>
+                                    <div className='col-12 col-md-4 p-2'>
                                         <label className='form-label'>Email</label>
                                         <input onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"Email",Value:e.target.value}))}} value={FormValue.Email} className='form-control form-control-sm' type='text' />
                                     </div>
-                                    <div className='col-12 p-2'>
+                                    <div className='col-12 col-md-4 p-2'>
                                         <label className='form-label'>Address</label>
                                         <textarea onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"Address",Value:e.target.value}))}} value={FormValue.Address} className='form-control form-control-sm' rows={4} />
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-4 p-2">
+                                    <div className="col-6 col-md-4 p-2">
                                         <button onClick={SaveChange} className="btn btn-sm my-3 btn-success">{ObjectID!==0 ? "Save Change" : "Create"}</button>
                                     </div>
                                 </div>

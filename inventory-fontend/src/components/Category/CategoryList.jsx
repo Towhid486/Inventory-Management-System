@@ -4,8 +4,8 @@ import ReactPaginate from "react-paginate";
 import {AiOutlineDelete, AiOutlineEdit} from "react-icons/ai";
 import moment from "moment";
 import {Link} from "react-router-dom";
-import {ErrorToast} from "../../helper/FormHelper.js";
-import {CategoryListRequest} from "../../APIRequest/CategoryAPIRequest.js";
+import {CategoryListRequest, DeleteCategoryRequest} from "../../APIRequest/CategoryAPIRequest.js";
+import {DeleteAlert} from "../../helper/DeleteAlert.js";
 
 const CategoryList = () => {
     
@@ -48,14 +48,13 @@ const CategoryList = () => {
     
     
     const DeleteItem = async (id) => {
-        ErrorToast(id)
-        // let Result = await DeleteAlert();
-        // if(Result.isConfirmed){
-        //     let DeleteResult= await DeleteBrandRequest(id)
-        //     if(DeleteResult){
-        //         await BrandListRequest(1,perPage,searchKeyword);
-        //     }
-        // }
+        let Result = await DeleteAlert();
+        if(Result.isConfirmed){
+            let DeleteResult= await DeleteCategoryRequest(id)
+            if(DeleteResult){
+                await CategoryListRequest(1,perPage,searchKeyword);
+            }
+        }
     }
     
     
@@ -68,16 +67,20 @@ const CategoryList = () => {
                             <div className="card-body">
                                 <div className="container-fluid">
                                     <div className="row">
-                                        <div className="col-4">
-                                            <h5>Category List</h5>
+                                        <div className="col-12">
+                                            <h5 className="mb-3">Category List</h5>
                                         </div>
                                         
-                                        <div className="col-2">
+                                        <div className="col-6 col-md-3 pt-2">
+                                            <Link to={'/CategoryCreateUpdatePage'} className="btn px-3 px-lg-4 btn-success text-xxs" >Create New</Link>
+                                        </div>
+                                        
+                                        <div className="col-6 col-md-2 pt-2">
                                             <input onKeyUp={TextSearch} placeholder="Text Filter" className="form-control form-control-sm"/>
                                         </div>
                                         
-                                        <div className="col-2">
-                                            <select onChange={perPageOnChange} className="form-control mx-2 form-select-sm form-select form-control-sm" >
+                                        <div className="col-12 col-md-2 pt-2">
+                                            <select onChange={perPageOnChange} className="form-control form-select-sm form-select form-control-sm" >
                                                 <option value="20">20 Per Page</option>
                                                 <option value="30">30 Per Page</option>
                                                 <option value="50">50 Per Page</option>
@@ -85,10 +88,10 @@ const CategoryList = () => {
                                                 <option value="100">200 Per Page</option>
                                             </select>
                                         </div>
-                                        <div className="col-4">
+                                        <div className="col-12 col-md-5 pt-2">
                                             <div className="input-group mb-3">
                                                 <input onChange={searchKeywordOnChange} type="text" className="form-control form-control-sm" placeholder="Search.." aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                                                <button onClick={searchData} className="btn  btn-success btn-sm mb-0" type="button">Search</button>
+                                                <button onClick={searchData} className="btn btn-success btn-sm px-3 py-2 mb-0" type="button">Search</button>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +109,7 @@ const CategoryList = () => {
                                                     </thead>
                                                     <tbody>
                                                     {
-                                                        DataList.map((item,i)=>
+                                                        [...DataList].reverse().map((item,i)=>
                                                             <tr key={i}>
                                                                 <td><p className="text-xs text-start">{i+1}</p></td>
                                                                 <td><p className="text-xs text-start">{item.Name}</p></td>
@@ -126,7 +129,7 @@ const CategoryList = () => {
                                                 </table>
                                             </div>
                                         </div>
-                                        <div className="col-12 mt-5">
+                                        <div className="col-12 mt-3">
                                             <nav aria-label="Page navigation example">
                                                 <ReactPaginate
                                                     previousLabel="<"

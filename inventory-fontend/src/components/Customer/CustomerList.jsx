@@ -67,16 +67,20 @@ const CustomerList = () => {
                             <div className="card-body">
                                 <div className="container-fluid">
                                     <div className="row">
-                                        <div className="col-4">
-                                            <h5>Customers List</h5>
+                                        <div className="col-12">
+                                            <h5 className="mb-3">Customers List</h5>
                                         </div>
                                         
-                                        <div className="col-2">
+                                        <div className="col-6 col-md-3 pt-2">
+                                            <Link to={'/CustomerCreateUpdatePage'} className="btn px-3 px-lg-4 btn-success text-xxs" >Create New</Link>
+                                        </div>
+                                        
+                                        <div className="col-6 col-md-2 pt-2">
                                             <input onKeyUp={TextSearch} placeholder="Text Filter" className="form-control form-control-sm"/>
                                         </div>
                                         
-                                        <div className="col-2">
-                                            <select onChange={perPageOnChange} className="form-control mx-2 form-select-sm form-select form-control-sm" >
+                                        <div className="col-12 col-md-2 pt-2">
+                                            <select onChange={perPageOnChange} className="form-control form-select-sm form-select form-control-sm" >
                                                 <option value="20">20 Per Page</option>
                                                 <option value="30">30 Per Page</option>
                                                 <option value="50">50 Per Page</option>
@@ -84,7 +88,7 @@ const CustomerList = () => {
                                                 <option value="100">200 Per Page</option>
                                             </select>
                                         </div>
-                                        <div className="col-4">
+                                        <div className="col-12 col-md-5 pt-2">
                                             <div className="input-group mb-3">
                                                 <input onChange={searchKeywordOnChange} type="text" className="form-control form-control-sm" placeholder="Search.." aria-label="Recipient's username" aria-describedby="button-addon2"/>
                                                 <button onClick={searchData} className="btn  btn-success btn-sm mb-0" type="button">Search</button>

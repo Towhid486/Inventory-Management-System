@@ -29,7 +29,7 @@ a {
 }
 
 .table-section{
-  height: 55vh!important;
+  height: 50vh!important;
   overflow-y: auto;
   scrollbar-color: var(--bs-gray-500) var(--bs-light) !important;
   scrollbar-width: thin !important;

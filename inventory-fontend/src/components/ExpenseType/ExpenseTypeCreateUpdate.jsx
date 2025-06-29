@@ -5,7 +5,6 @@ import {CreateExpenseTypeRequest, FillExpenseTypeFormRequest} from "../../APIReq
 import {ErrorToast,IsEmpty} from "../../helper/FormHelper";
 import store from "../../redux/store/store";
 import {OnChangeExpenseTypeInput, ResetExpenseTypeFormValue} from "../../redux/state-slice/expensetype-slice";
-import {ResetFormValue} from "../../redux/state-slice/supplier-slice.js";
 
 const ExpenseTypeCreateUpdate = () => {
     
@@ -63,7 +62,7 @@ const ExpenseTypeCreateUpdate = () => {
                                         </div>
                                         : ""
                                 }
-                                <div className="col-4 p-2">
+                                <div className="col-12 col-md-4 p-2">
                                     <label className="form-label">Expense Type Name</label>
                                     <input onChange={(e)=>{store.dispatch(OnChangeExpenseTypeInput({Name:"Name",Value:e.target.value}))}} value={FormValue.Name} className="form-control form-control-sm" type="text"/>
                                 </div>
