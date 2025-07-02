@@ -9,7 +9,7 @@ import {
     SetReturnChart,
     SetReturnTotal, SetSaleChart, SetSaleTotal
 } from "../redux/state-slice/dashboard-slice";
-import {BaseURL} from "../helper/config";
+import { BaseURL } from './../helper/Config';
 const AxiosHeader={headers:{"token":getToken()}}
 
 
