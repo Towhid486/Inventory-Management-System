@@ -84,6 +84,7 @@ router.post('/UpdateProducts/:id',AuthVerification,ProductsController.UpdateProd
 router.get('/ProductsList/:pageNo/:perPage/:searchKeyword',AuthVerification,ProductsController.ProductsList)
 router.get('/DeleteProducts/:id',AuthVerification,ProductsController.DeleteProducts)
 router.get('/ProductsDetailsByID/:id',AuthVerification,ProductsController.ProductsDetailsByID)
+router.get('/ProductsDropDown',AuthVerification,ProductsController.ProductsDropDown)
 
 
 

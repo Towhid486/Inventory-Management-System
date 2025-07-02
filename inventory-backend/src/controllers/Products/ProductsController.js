@@ -9,6 +9,7 @@ const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductMod
 const SaleProductsModel = require("../../models/Sales/SaleProductModel");
 const DeleteService = require("../../services/common/DeleteService");
 const DetailsByIDService = require("../../services/common/DetailsByIDService");
+const DropDownService = require("../../services/common/DropDownService");
 
 
 
@@ -59,4 +60,9 @@ exports.DeleteProducts = async (req, res) => {
         let Result = await DeleteService(req,DataModel)
         res.status(200).json(Result)
     }
+}
+
+exports.ProductsDropDown=async (req, res) => {
+    let Result= await DropDownService(req,DataModel,{_id:1,Name:1})
+    res.status(200).json(Result)
 }
