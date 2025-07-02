@@ -1,19 +1,49 @@
 import {createSlice} from "@reduxjs/toolkit";
-
-export const dashboardSlice = createSlice({
+export const dashboardSlice=createSlice({
     name:'dashboard',
     initialState:{
-        List:[],
-        ListTotal:0,
+        ExpenseChart:[],
+        PurchaseChart:[],
+        ReturnChart:[],
+        SaleChart:[],
+        ExpenseTotal:0,
+        SaleTotal:0,
+        PurchaseTotal:0,
+        ReturnTotal:0,
     },
     reducers:{
-        SetDashboardList:(state,action)=>{
-            state.List = action.payload;
+        SetExpenseChart:(state,action)=>{
+            state.ExpenseChart=action.payload
         },
-        SetDashboardListTotal:(state,action)=>{
-            state.ListTotal = action.payload;
+        SetSaleChart:(state,action)=>{
+            state.SaleChart=action.payload
         },
+        SetPurchaseChart:(state,action)=>{
+            state.PurchaseChart=action.payload
+        },
+        SetReturnChart:(state,action)=>{
+            state.ReturnChart=action.payload
+        },
+        SetExpenseTotal:(state,action)=>{
+            state.ExpenseTotal=action.payload
+        },
+        SetSaleTotal:(state,action)=>{
+            state.SaleTotal=action.payload
+        },
+        SetPurchaseTotal:(state,action)=>{
+            state.PurchaseTotal=action.payload
+        },
+        SetReturnTotal:(state,action)=>{
+            state.ReturnTotal=action.payload
+        }
     }
 })
-export const {SetDashboardList,SetDashboardListTotal} = dashboardSlice.actions;
-export default dashboardSlice.reducer;
+export  const {SetExpenseChart,
+    SetSaleChart,
+    SetPurchaseChart,
+    SetReturnChart,
+    SetExpenseTotal,
+    SetSaleTotal,
+    SetPurchaseTotal,
+    SetReturnTotal}=dashboardSlice.actions;
+export default  dashboardSlice.reducer;

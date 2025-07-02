@@ -32,7 +32,8 @@ const CategoryCreateUpdate = () => {
             ErrorToast("Category Name is Empty !")
         }
         else {
-            if(await CreateUpdateCategoryRequest(FormValue,ObjectID)){
+            let Result = await CreateUpdateCategoryRequest(FormValue,ObjectID)
+            if(Result.status){
                 navigate("/CategoryListPage")
             }
         }
@@ -69,7 +70,7 @@ const CategoryCreateUpdate = () => {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-6 p-2">
+                                <div className="col-6 col-md-4 p-2">
                                     <button onClick={SaveChange} className="btn my-3 btn-success">{ObjectID!==0 ? "Save Change" : "Create"}</button>
                                 </div>
                             </div>

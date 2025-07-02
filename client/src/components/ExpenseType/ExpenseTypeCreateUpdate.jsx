@@ -56,20 +56,20 @@ const ExpenseTypeCreateUpdate = () => {
                                 {
                                     ObjectID !== 0
                                         ?
-                                        <div className='col-4 p-2'>
+                                        <div className='col-12 col-sm-4 p-2'>
                                             <label className='form-label'>Expens Type ID</label>
                                             <input value={ObjectID} readOnly={true} className='form-control form-control-sm' type='text' />
                                         </div>
                                         : ""
                                 }
-                                <div className="col-12 col-md-4 p-2">
+                                <div className="col-12 col-sm-4 p-2">
                                     <label className="form-label">Expense Type Name</label>
                                     <input onChange={(e)=>{store.dispatch(OnChangeExpenseTypeInput({Name:"Name",Value:e.target.value}))}} value={FormValue.Name} className="form-control form-control-sm" type="text"/>
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-4 p-2">
-                                    <button onClick={SaveChange} className="btn btn-sm my-3 btn-success">{ObjectID!==0 ? "Save Change" : "Create"}</button>
+                                <div className="col-6 col-md-4 p-2">
+                                    <button onClick={SaveChange} className="btn px-2 my-2 text-xs btn-success">{ObjectID!==0 ? "Save Change" : "Create"}</button>
                                 </div>
                             </div>
                         </div>

@@ -1,11 +1,11 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import ReactPaginate from "react-paginate";
-import {AiOutlineDelete, AiOutlineEdit, AiOutlineEye} from "react-icons/ai";
+import {AiOutlineDelete, AiOutlineEdit} from "react-icons/ai";
 import {Link} from "react-router-dom";
-import {ErrorToast} from "../../helper/FormHelper.js";
 import CurrencyFormat from "react-currency-format";
-import {ExpensesListRequest} from "../../APIRequest/ExpenseAPIRequest.js";
+import {DeleteExpenseRequest, ExpensesListRequest} from "../../APIRequest/ExpenseAPIRequest.js";
+import {DeleteAlert} from "../../helper/DeleteAlert.js";
 
 const ExpenseList = () => {
     
@@ -48,14 +48,13 @@ const ExpenseList = () => {
     
     
     const DeleteItem = async (id) => {
-        ErrorToast(id)
-        // let Result = await DeleteAlert();
-        // if(Result.isConfirmed){
-        //     let DeleteResult= await DeleteExpenseRequest(id)
-        //     if(DeleteResult){
-        //         await ExpensesListRequest(1,perPage,searchKeyword);
-        //     }
-        // }
+        let Result = await DeleteAlert();
+        if(Result.isConfirmed){
+            let DeleteResult= await DeleteExpenseRequest(id)
+            if(DeleteResult){
+                await ExpensesListRequest(1,perPage,searchKeyword);
+            }
+        }
     }
     
     
@@ -123,7 +122,7 @@ const ExpenseList = () => {
                                                                     <Link to={`/ExpenseCreateUpdatePage?id=${item._id}`} className="btn text-info btn-outline-light p-2 mb-0 btn-sm">
                                                                         <AiOutlineEdit size={15} />
                                                                     </Link>
-                                                                    <button onClick={DeleteItem.bind(this,item._id)} className="btn btn-outline-light text-danger p-2 mb-0 btn-sm ms-2">
+                                                                    <button onClick={()=>DeleteItem(item._id)} className="btn btn-outline-light text-danger p-2 mb-0 btn-sm ms-2">
                                                                         <AiOutlineDelete size={15} />
                                                                     </button>
                                                                 </td>

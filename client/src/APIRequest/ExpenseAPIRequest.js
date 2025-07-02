@@ -110,3 +110,27 @@ export const FillExpenseFormRequest = async (ExpenseID) =>{
         catchBlockHandler(res)
     }
 }
+
+export const DeleteExpenseRequest = async (ExpenseID) =>{
+    try{
+        store.dispatch(ShowLoader())
+        let URL = `${BaseURL}/DeleteExpense/${ExpenseID}`
+        let {data} = await axios.get(URL,AxiosHeader)
+        store.dispatch(HideLoader())
+        if(data.status==="Associate"){
+            ErrorToast(data['data'])
+        }
+        else if(data.status===true){
+            SuccessToast("Expense Delete Successful")
+            return data;
+        }
+        else{
+            ErrorToast("Request Fail ! Try Again")
+        }
+    }
+    catch (e) {
+        store.dispatch(HideLoader())
+        const res = e?.response;
+        catchBlockHandler(res)
+    }
+}

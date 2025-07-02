@@ -1,9 +1,10 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import {ProductsListRequest} from "../../APIRequest/ProductAPIRequest";
+import {DeleteProductRequest, ProductsListRequest} from "../../APIRequest/ProductAPIRequest";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {AiOutlineDelete, AiOutlineEdit, AiOutlineEye} from "react-icons/ai";
 import ReactPaginate from "react-paginate";
+import {DeleteAlert} from "../../helper/DeleteAlert.js";
 
 
 const ProductList = () => {
@@ -53,13 +54,13 @@ const ProductList = () => {
     }
     
     const DeleteItem = async (id) => {
-        // let Result = await DeleteAlert();
-        // if(Result.isConfirmed){
-        //     let DeleteResult= await DeleteProductRequest(id)
-        //     if(DeleteResult){
-        //         await ProductsListRequest(1,perPage,searchKeyword);
-        //     }
-        // }
+        let Result = await DeleteAlert();
+        if(Result.isConfirmed){
+            let DeleteResult= await DeleteProductRequest(id)
+            if(DeleteResult){
+                await ProductsListRequest(1,perPage,searchKeyword);
+            }
+        }
     }
     
     
@@ -72,16 +73,20 @@ const ProductList = () => {
                             <div className="card-body">
                                 <div className="container-fluid">
                                     <div className="row">
-                                        <div className="col-4">
+                                        <div className="col-12">
                                             <h5> Product List</h5>
                                         </div>
                                         
-                                        <div className="col-2">
+                                        <div className="col-6 col-md-3 pt-2">
+                                            <Link to={'/ProductCreateUpdatePage'} className="btn px-3 px-lg-4 btn-success text-xxs" >Create New</Link>
+                                        </div>
+                                        
+                                        <div className="col-6 col-md-2 pt-2">
                                             <input onKeyUp={TextSearch} placeholder="Text Filter" className="form-control form-control-sm"/>
                                         </div>
                                         
-                                        <div className="col-2">
-                                            <select onChange={perPageOnChange} className="form-control mx-2 form-select-sm form-select form-control-sm" >
+                                        <div className="col-12 col-md-2 pt-2">
+                                            <select onChange={perPageOnChange} className="form-control form-select-sm form-select form-control-sm" >
                                                 <option value="20">20 Per Page</option>
                                                 <option value="30">30 Per Page</option>
                                                 <option value="50">50 Per Page</option>
@@ -89,7 +94,7 @@ const ProductList = () => {
                                                 <option value="100">200 Per Page</option>
                                             </select>
                                         </div>
-                                        <div className="col-4">
+                                        <div className="col-12 col-md-5 pt-2">
                                             <div className="input-group mb-3">
                                                 <input onChange={searchKeywordOnChange} type="text" className="form-control form-control-sm" placeholder="Search.." aria-label="Recipient's username" aria-describedby="button-addon2"/>
                                                 <button onClick={searchData} className="btn  btn-success btn-sm mb-0" type="button">Search</button>
@@ -106,6 +111,7 @@ const ProductList = () => {
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</td>
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Brand</td>
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Categories</td>
+                                                        <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</td>
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Details</td>
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</td>
                                                     </tr>
@@ -118,6 +124,7 @@ const ProductList = () => {
                                                                 <td><p className="text-xs text-start">{item.Unit}</p></td>
                                                                 <td><p className="text-xs text-start">{item.brands[0]?item.brands[0]['Name']:""}</p></td>
                                                                 <td><p className="text-xs text-start">{item.categories[0]?item.categories[0]['Name']:""}</p></td>
+                                                                <td><p className="text-xs text-start">{item.Price}</p></td>
                                                                 <td><p className="text-xs text-start">{item.Details}</p></td>
                                                                 <td>
                                                                     <Link to={`/ProductCreateUpdatePage?id=${item._id}`} className="btn text-info btn-outline-light p-2 mb-0 btn-sm">
@@ -126,9 +133,9 @@ const ProductList = () => {
                                                                     <button onClick={()=>DeleteItem(item._id)} className="btn btn-outline-light text-danger p-2 mb-0 btn-sm ms-2">
                                                                         <AiOutlineDelete size={15} />
                                                                     </button>
-                                                                    <button onClick={()=>DeleteItem(item._id)} className="btn btn-outline-light text-success p-2 mb-0 btn-sm ms-2">
-                                                                        <AiOutlineEye size={15} />
-                                                                    </button>
+                                                                    {/*<button onClick={()=>DeleteItem(item._id)} className="btn btn-outline-light text-success p-2 mb-0 btn-sm ms-2">*/}
+                                                                    {/*    <AiOutlineEye size={15} />*/}
+                                                                    {/*</button>*/}
                                                                 </td>
                                                             </tr>
                                                         )

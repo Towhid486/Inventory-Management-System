@@ -80,6 +80,7 @@ export const FillExpenseTypeFormRequest = async (ObjectID) =>{
         catchBlockHandler(res)
     }
 }
+
 export const DeleteExpenseTypeRequest = async (ID) =>{
     try{
         store.dispatch(ShowLoader())

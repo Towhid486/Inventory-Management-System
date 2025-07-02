@@ -79,12 +79,12 @@ const CustomerCreateUpdate = () => {
                                     </div>
                                     <div className='col-12 col-md-4 p-2'>
                                         <label className='form-label'>Address</label>
-                                        <textarea onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"Address",Value:e.target.value}))}} value={FormValue.Address} className='form-control form-control-sm' rows={4} />
+                                        <input onChange={(e)=>{store.dispatch(OnChangeCustomerInput({Name:"Address",Value:e.target.value}))}} value={FormValue.Address} className='form-control form-control-sm' type="text" />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-6 col-md-4 p-2">
-                                        <button onClick={SaveChange} className="btn btn-sm my-3 btn-success">{ObjectID!==0 ? "Save Change" : "Create"}</button>
+                                        <button onClick={SaveChange} className="btn my-3 btn-success">{ObjectID!==0 ? "Save Change" : "Create"}</button>
                                     </div>
                                 </div>
                             </div>
