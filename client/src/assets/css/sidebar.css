@@ -16,9 +16,13 @@
 }
 .icon-nav-img{
   border-radius: 50%;
-  width: 45px ;
-  height: 45px ;
+  width: 55px ;
+  height: 55px ;
   object-fit: cover;
+}
+.nav-img-border{
+  border: 1px solid #00A884;
+
 }
 .icon-nav-img-lg{
   border-radius: 50%;

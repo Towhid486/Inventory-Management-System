@@ -82,7 +82,7 @@ const Dashboard = () => {
                                     <XAxis dataKey="_id" />
                                     <YAxis />
                                     <Tooltip />
-                                    <Area type="monotone" dataKey="TotalAmount" stroke="#CB0C9F" fill="#CB0C9F" />
+                                    <Area type="monotone" dataKey="TotalAmount" stroke="#04cfa6" fill="#04cfa6" />
                                 </AreaChart>
                             </ResponsiveContainer>
                         </div>

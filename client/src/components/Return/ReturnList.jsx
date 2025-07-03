@@ -44,9 +44,10 @@ const ReturnList = () => {
             row.style.display = (row.innerText.includes(e.target.value)) ? '' : 'none'
         })
     }
-    const DetailsPopUp = (id) => {
     
-    }
+    // const DetailsPopUp = (id) => {
+    //
+    // }
     
     return (
         <Fragment>
@@ -57,16 +58,20 @@ const ReturnList = () => {
                             <div className="card-body">
                                 <div className="container-fluid">
                                     <div className="row">
-                                        <div className="col-4">
+                                        <div className="col-12">
                                             <h5>Return List</h5>
                                         </div>
                                         
-                                        <div className="col-2">
+                                        <div className="col-6 col-md-3 pt-2">
+                                            <Link to={'/ReturnCreateUpdatePage'} className="btn px-3 px-lg-4 btn-success text-xxs" >Create New</Link>
+                                        </div>
+                                        
+                                        <div className="col-6 col-md-2 pt-2">
                                             <input onKeyUp={TextSearch} placeholder="Text Filter" className="form-control form-control-sm"/>
                                         </div>
                                         
-                                        <div className="col-2">
-                                            <select onChange={perPageOnChange} className="form-control mx-2 form-select-sm form-select form-control-sm" >
+                                        <div className="col-12 col-md-2 pt-2">
+                                            <select onChange={perPageOnChange} className="form-control form-select-sm form-select form-control-sm" >
                                                 <option value="20">20 Per Page</option>
                                                 <option value="30">30 Per Page</option>
                                                 <option value="50">50 Per Page</option>
@@ -74,7 +79,7 @@ const ReturnList = () => {
                                                 <option value="100">200 Per Page</option>
                                             </select>
                                         </div>
-                                        <div className="col-4">
+                                        <div className="col-12 col-md-5 pt-2">
                                             <div className="input-group mb-3">
                                                 <input onChange={searchKeywordOnChange} type="text" className="form-control form-control-sm" placeholder="Search.." aria-label="Recipient's username" aria-describedby="button-addon2"/>
                                                 <button onClick={searchData} className="btn  btn-success btn-sm mb-0" type="button">Search</button>
@@ -94,13 +99,13 @@ const ReturnList = () => {
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Other Cost</td>
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Discount</td>
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</td>
-                                                        <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</td>
+                                                        {/*<td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</td>*/}
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     {
-                                                        DataList.map((item,i)=>
-                                                            <tr>
+                                                        [...DataList].reverse().map((item,i)=>
+                                                            <tr key={i}>
                                                                 <td>
                                                                     <p className="text-xs text-start">{item.customers[0]['CustomerName']}</p>
                                                                 </td>
@@ -140,11 +145,11 @@ const ReturnList = () => {
                                                                     <p className="text-xs text-start">{moment(item.CreatedDate).format('MMMM Do YYYY')}</p>
                                                                 </td>
                                                                 
-                                                                <td>
-                                                                    <button onClick={()=>DetailsPopUp(item._id)} className="btn btn-outline-light text-success p-2 mb-0 btn-sm ms-2">
-                                                                        <AiOutlineEye size={15} />
-                                                                    </button>
-                                                                </td>
+                                                                {/*<td>*/}
+                                                                {/*    <button onClick={()=>DetailsPopUp(item._id)} className="btn btn-outline-light text-success p-2 mb-0 btn-sm ms-2">*/}
+                                                                {/*        <AiOutlineEye size={15} />*/}
+                                                                {/*    </button>*/}
+                                                                {/*</td>*/}
                                                             </tr>
                                                         )
                                                     }

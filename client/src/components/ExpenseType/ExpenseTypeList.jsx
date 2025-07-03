@@ -107,7 +107,7 @@ const ExpenseTypeList = () => {
                                                     <tbody>
                                                     {
                                                         DataList.map((item,i)=>
-                                                            <tr>
+                                                            <tr key={i}>
                                                                 <td><p className="text-xs text-start">{i+1}</p></td>
                                                                 <td><p className="text-xs text-start">{item.Name}</p></td>
                                                                 <td><p className="text-xs text-start">{moment(item.CreatedDate).format('MMMM Do YYYY')}</p></td>

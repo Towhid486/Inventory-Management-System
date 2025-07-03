@@ -3,14 +3,21 @@ import {CreateSaleRequest, CustomerDropDownRequest, ProductDropDownRequest} from
 import {useSelector} from "react-redux";
 import {ErrorToast, IsEmpty, SuccessToast} from "../../helper/FormHelper";
 import store from "../../redux/store/store";
-import {OnChangeSaleInput, RemoveSaleItem, SetSaleItemList} from "../../redux/state-slice/sale-slice";
+import {
+    OnChangeSaleInput,
+    RemoveSaleItem,
+    ResetSaleFormValue, ResetSaleItem,
+    SetSaleItemList,
+} from "../../redux/state-slice/sale-slice";
 import {BsCartCheck, BsTrash} from "react-icons/bs";
+import {useNavigate} from "react-router-dom";
 
 
 
 const SalesCreateUpdate = () => {
     
     let productRef,qtyRef,unitPriceRef=useRef();
+    let navigate = useNavigate()
     
     useEffect(()=>{
         (async () => {
@@ -61,14 +68,32 @@ const SalesCreateUpdate = () => {
     
     const CreateNewSale=async () => {
         // Apply Validation
-        let Result= await CreateSaleRequest(SaleFormValue, SaleItemList);
-        if(Result.status){
-            SuccessToast(Result.message)
+        if (IsEmpty(SaleFormValue.CustomerID)) {
+            ErrorToast("Select Customer !")
+        } else if (IsEmpty(SaleFormValue.VatTax)) {
+            ErrorToast("VAT/Taxs Required !")
+        } else if (IsEmpty(SaleFormValue.Discount)) {
+            ErrorToast("Discount Required !")
+        } else if (IsEmpty(SaleFormValue.OtherCost)) {
+            ErrorToast("OtherCost Required !")
+        } else if (IsEmpty(SaleFormValue.ShippingCost)) {
+            ErrorToast("ShippingCost Required !")
+        } else if (IsEmpty(SaleFormValue.GrandTotal)) {
+            ErrorToast("GrandTotal Required !")
+        } else if (IsEmpty(SaleFormValue.Note)) {
+            ErrorToast("Note Required !")
+        } else if (SaleItemList.length<=0) {
+            ErrorToast("You haven't added any product on cart!")
+        }else{
+            let Result= await CreateSaleRequest(SaleFormValue, SaleItemList);
+            if(Result.status){
+                SuccessToast(Result.message)
+                store.dispatch(ResetSaleItem())
+                store.dispatch(ResetSaleFormValue())
+                navigate('/SalesListPage')
+            }
         }
     }
-    
-    
-    
     
     return (
         <Fragment>
@@ -120,7 +145,7 @@ const SalesCreateUpdate = () => {
                                     
                                     <div className="col-12 p-1">
                                         <label className="form-label">Note</label>
-                                        <input  onChange={(e)=>{store.dispatch(OnChangeSaleInput({Name:"Note",Value:e.target.value}))}}  className="form-control form-control-sm" type="number"/>
+                                        <input  onChange={(e)=>{store.dispatch(OnChangeSaleInput({Name:"Note",Value:e.target.value}))}}  className="form-control form-control-sm" type="text"/>
                                     </div>
                                 
                                 
@@ -149,15 +174,15 @@ const SalesCreateUpdate = () => {
                                             }
                                         </select>
                                     </div>
-                                    <div className="col-2 p-1">
+                                    <div className="col-6 col-md-2 p-1">
                                         <label className="form-label">Qty</label>
                                         <input ref={(input)=>qtyRef=input}  className="form-control form-control-sm" />
                                     </div>
-                                    <div className="col-2 p-1">
+                                    <div className="col-6 col-md-2 p-1">
                                         <label className="form-label">Unit Price</label>
                                         <input ref={(input)=>unitPriceRef=input} className="form-control form-control-sm" />
                                     </div>
-                                    <div className="col-2 p-1">
+                                    <div className="col-6 col-md-2 p-1">
                                         <label className="form-label">Add to cart</label>
                                         <button onClick={OnAddCart} className="btn w-100 btn-success btn-sm"><BsCartCheck/></button>
                                     </div>
@@ -180,7 +205,7 @@ const SalesCreateUpdate = () => {
                                                 {
                                                     SaleItemList.map((item,i)=>{
                                                         return(
-                                                            <tr>
+                                                            <tr key={i}>
                                                                 <td>{item.ProductName}</td>
                                                                 <td>{item.Qty}</td>
                                                                 <td>{item.UnitCost}</td>

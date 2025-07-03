@@ -81,7 +81,7 @@ const SupplierList = () => {
                                         </div>
                                         
                                         <div className="col-12 col-md-2 pt-2">
-                                            <select onChange={perPageOnChange} className="form-control mx-2 form-select-sm form-select form-control-sm" >
+                                            <select onChange={perPageOnChange} className="form-control form-select-sm form-select form-control-sm" >
                                                 <option value="20">20 Per Page</option>
                                                 <option value="30">30 Per Page</option>
                                                 <option value="50">50 Per Page</option>

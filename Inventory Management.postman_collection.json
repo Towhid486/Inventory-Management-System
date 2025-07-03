@@ -1,0 +1,1970 @@
+{
+	"info": {
+		"_postman_id": "dc2ad539-b423-426f-a8ce-69663a02cfdd",
+		"name": "Inventory Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38200587"
+	},
+	"item": [
+		{
+			"name": "User Profie",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"developertowhid@gmail.com\",\r\n    \"firstName\": \"Towhid\",\r\n    \"lastName\": \"Hossain\",\r\n    \"mobile\": \"01829245099\",\r\n    \"password\": \"1234\",\r\n    \"photo\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/Registration",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"Registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"developertowhid@gmail.com\",\r\n    \"password\": \"0000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/Login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProfileDetails",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ProfileDetails",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ProfileDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProfileUpdate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Md. Towhid Hossain\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ProfileUpdate",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ProfileUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerifyEmail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Md. Towhid\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/RecoverVerifyEmail/developertowhid@gmail.com",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"RecoverVerifyEmail",
+								"developertowhid@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerifyOTP",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Md. Towhid\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/RecoverVerifyOTP/developertowhid@gmail.com/977053",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"RecoverVerifyOTP",
+								"developertowhid@gmail.com",
+								"977053"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RecoverResetPass",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"developertowhid@gmail.com\",\r\n    \"OTP\": \"977053\",\r\n    \"password\": \"0000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/RecoverResetPass",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"RecoverResetPass"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "CreateBrand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Samsung\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateBrand",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateBrand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBrand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"sssss\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/UpdateBrand/683d066f16dd9900055489b0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"UpdateBrand",
+								"683d066f16dd9900055489b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BrandDropDown",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/BrandDropDown",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"BrandDropDown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BrandList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/BrandList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"BrandList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBrand",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/DeleteBrand/:id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"DeleteBrand",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BrandDetailsByID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/BrandDetailsByID/683d17a0013296461f9afa56",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"BrandDetailsByID",
+								"683d17a0013296461f9afa56"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "CreateCategories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Phone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateCategories",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBrand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Phones\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/UpdateCategories/683d156f013296461f9afa50",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"UpdateCategories",
+								"683d156f013296461f9afa50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CategoriesList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/CategoriesList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CategoriesList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CategoriesDropDown",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/CategoriesDropDown",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CategoriesDropDown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/DeleteCategories/:id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"DeleteCategories",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CategoriesDetailsByID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/CategoriesDetailsByID/683d17a0013296461f9afa56",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CategoriesDetailsByID",
+								"683d17a0013296461f9afa56"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "CreateCustomers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CustomerName\": \"Sazzat Hossen Emon\",\r\n    \"Phone\": \"01198897879\",\r\n    \"Email\": \"emon@gmail.com\",\r\n    \"Address\": \"Halishahar,Chattogram\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateCustomers",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateCustomers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCustomers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CustomerName\": \"Sazzat Hossen Emon\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/UpdateCustomers/683d17da013296461f9afa58",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"UpdateCustomers",
+								"683d17da013296461f9afa58"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomersList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/CustomersList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CustomersList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CategoriesDropDown",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/CustomersDropDown",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CustomersDropDown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCustomers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/DeleteCustomers/683d17a0013296461f9afa56",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"DeleteCustomers",
+								"683d17a0013296461f9afa56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CustomerDetailsByID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/CustomerDetailsByID/683d17a0013296461f9afa56",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CustomerDetailsByID",
+								"683d17a0013296461f9afa56"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Suppliers",
+			"item": [
+				{
+					"name": "CreateSuppliers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"SupplierName\": \"Sazzat Hossen Emon\",\r\n    \"Phone\": \"01198897879\",\r\n    \"Email\": \"emon@gmail.com\",\r\n    \"Address\": \"Halishahar,Chattogram\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateSuppliers",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateSuppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSuppliers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"SupplierName\": \"Hossen Emon\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/UpdateSuppliers/683d19ccf25c3e950e7c5d80",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"UpdateSuppliers",
+								"683d19ccf25c3e950e7c5d80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SuppliersList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/SuppliersList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"SuppliersList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SuppliersDropDown",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/SuppliersDropDown",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"SuppliersDropDown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteSupplier",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/DeleteSupplier/:id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"DeleteSupplier",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SuppliersDetailsByID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/SuppliersDetailsByID/683d19ccf25c3e950e7c5d80",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"SuppliersDetailsByID",
+								"683d19ccf25c3e950e7c5d80"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ExpenseTypes",
+			"item": [
+				{
+					"name": "CreateExpenseTypes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Transportation\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateExpenseTypes",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateExpenseTypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateExpenseTypes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Rental\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/UpdateExpenseTypes/683e1c95717cb86ceac51e2f",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"UpdateExpenseTypes",
+								"683e1c95717cb86ceac51e2f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExpenseTypesList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ExpenseTypesList/1/5/transport",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ExpenseTypesList",
+								"1",
+								"5",
+								"transport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExpenseTypesDropDown",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ExpenseTypesDropDown",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ExpenseTypesDropDown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExpenseTypesDetailsByID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ExpenseTypesDetailsByID/683e1d21717cb86ceac51e32",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ExpenseTypesDetailsByID",
+								"683e1d21717cb86ceac51e32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteExpenseType",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/DeleteExpenseType/685fea1bfeec91941276632b",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"DeleteExpenseType",
+								"685fea1bfeec91941276632b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Expenses",
+			"item": [
+				{
+					"name": "CreateExpenses",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TypeID\": \"683e1d21717cb86ceac51e32\",\r\n    \"Amount\": 2000,\r\n    \"Note\": \"How are you\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateExpenses",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateExpenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateExpenses",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Note\": \"Chittagong to Dhaka Train Ticket\",\r\n    \"Amount\": 425\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/UpdateExpenses/683e235b3863f275b42c969f",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"UpdateExpenses",
+								"683e235b3863f275b42c969f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExpensesList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ExpensesList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ExpensesList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteExpense",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/DeleteExpense/683e235b3863f275b42c969f",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"DeleteExpense",
+								"683e235b3863f275b42c969f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExpenseDetailsByID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ExpenseDetailsByID/683e2c3de8454ae1bbb4c3f6",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ExpenseDetailsByID",
+								"683e2c3de8454ae1bbb4c3f6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "CreateProducts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CategoryID\": \"683d156f013296461f9afa50\",\r\n    \"BrandID\": \"683f4981c894774d4f80844a\",\r\n    \"Name\": \"Iphone 12 pro \",\r\n    \"Price\": 100000,\r\n    \"Unit\": \"Pound\",\r\n    \"Details\": \"Super amoled full hd display with dolby speaker.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateProducts",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProducts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CategoryID\": \"683d156f013296461f9afa50\",\r\n    \"BrandID\": \"683f4981c894774d4f80844a\",\r\n    \"Name\": \"Samsung J2 Pro\",\r\n    \"Price\": 18000,\r\n    \"Unit\": \"Pound\",\r\n    \"Details\": \"Super amoled full hd display with dolby speaker.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/UpdateProducts/683f4c2240867e4156d79eba",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"UpdateProducts",
+								"683f4c2240867e4156d79eba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductsList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Note\": \"Chittagong to Dhaka Train Ticket\",\r\n    \"Amount\": 425\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ProductsList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ProductsList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductsDropdown",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Note\": \"Chittagong to Dhaka Train Ticket\",\r\n    \"Amount\": 425\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ProductsDropdown",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ProductsDropdown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProducts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Note\": \"Chittagong to Dhaka Train Ticket\",\r\n    \"Amount\": 425\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/DeleteProducts/:id",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"DeleteProducts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductsDetailsByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Note\": \"Chittagong to Dhaka Train Ticket\",\r\n    \"Amount\": 425\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ProductsDetailsByID/683f4c2240867e4156d79eba",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ProductsDetailsByID",
+								"683f4c2240867e4156d79eba"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchase",
+			"item": [
+				{
+					"name": "CreatePurchases",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Parent\": {\r\n        \"SupplierID\":\"683d19ccf25c3e950e7c5d80\",\r\n        \"VatTax\":100,\r\n        \"Discount\":0,\r\n        \"OtherCost\":100,\r\n        \"ShippingCost\":100,\r\n        \"GrandTotal\":5000,\r\n        \"Note\":\"Note\"\r\n    },\r\n    \"Childs\": [\r\n        {\r\n            \"ProductID\": \"683f4c2240867e4156d79eba\",\r\n            \"Qty\": 1,\r\n            \"UnitCost\": 100,\r\n            \"Total\":100\r\n        },\r\n        {\r\n            \"ProductID\": \"683f7cfd40cfdf2533876d16\",\r\n            \"Qty\": 1,\r\n            \"UnitCost\": 100,\r\n            \"Total\":100\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreatePurchases",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreatePurchases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PurchasesList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/PurchasesList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"PurchasesList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PurchaseDelete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/PurchaseDelete/6840c24f5984f9ed75e0b3a7",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"PurchaseDelete",
+								"6840c24f5984f9ed75e0b3a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Returns",
+			"item": [
+				{
+					"name": "CreateReturns",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Parent\": {\r\n        \"CustomerID\":\"683d17a0013296461f9afa56\",\r\n        \"VatTax\":100,\r\n        \"Discount\":0,\r\n        \"OtherCost\":100,\r\n        \"ShippingCost\":100,\r\n        \"GrandTotal\":1300,\r\n        \"Note\":\"Note\"\r\n    },\r\n    \"Childs\": [\r\n        {\r\n            \"ProductID\": \"683f4c2240867e4156d79eba\",\r\n            \"Qty\": 2,\r\n            \"UnitCost\": 150,\r\n            \"Total\":300\r\n        },\r\n        {\r\n            \"ProductID\": \"683f7cfd40cfdf2533876d16\",\r\n            \"Qty\": 2,\r\n            \"UnitCost\": 350,\r\n            \"Total\":700\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateReturns",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateReturns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReturnsList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ReturnsList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ReturnsList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReturnsDelete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ReturnsDelete/6840a528b88937dda1f72047",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ReturnsDelete",
+								"6840a528b88937dda1f72047"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "CreateSales",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Parent\": {\r\n        \"CustomerID\":\"683d17a0013296461f9afa56\",\r\n        \"VatTax\":100,\r\n        \"Discount\":0,\r\n        \"OtherCost\":100,\r\n        \"ShippingCost\":100,\r\n        \"GrandTotal\":5000,\r\n        \"Note\":\"Note\"\r\n    },\r\n    \"Childs\": [\r\n        {\r\n            \"ProductID\": \"683f4c2240867e4156d79eba\",\r\n            \"Qty\": 1,\r\n            \"UnitCost\": 100,\r\n            \"Total\":100\r\n        },\r\n        {\r\n            \"ProductID\": \"683f7cfd40cfdf2533876d16\",\r\n            \"Qty\": 1,\r\n            \"UnitCost\": 100,\r\n            \"Total\":100\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/CreateSales",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"CreateSales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SalesList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/SalesList/1/5/0",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"SalesList",
+								"1",
+								"5",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SalesDelete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/SalesDelete/6840c472a70e30d4b65a8cba",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"SalesDelete",
+								"6840c472a70e30d4b65a8cba"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "ExpensesByDate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FromDate\": \"2025-05-02T22:18:22.440+00:00\",\r\n    \"ToDate\": \"2025-06-04T22:01:42.629+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ExpensesByDate",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ExpensesByDate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PurchasesByDate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FromDate\": \"2025-05-02T22:18:22.440+00:00\",\r\n    \"ToDate\": \"2025-06-04T22:01:42.629+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/PurchasesByDate",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"PurchasesByDate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReturnByDate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FromDate\": \"2025-05-02T22:18:22.440+00:00\",\r\n    \"ToDate\": \"2025-06-05T17:20:57.942+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ReturnByDate",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ReturnByDate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SalesByDate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FromDate\": \"2025-05-02T22:18:22.440+00:00\",\r\n    \"ToDate\": \"2025-06-04T22:08:21.642+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/SalesByDate",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"SalesByDate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Summary",
+			"item": [
+				{
+					"name": "ExpensesSummary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ExpensesSummary",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ExpensesSummary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PurchaseSummary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/PurchaseSummary",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"PurchaseSummary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReturnSummary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/ReturnSummary",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ReturnSummary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SalesSummary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/SalesSummary",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"SalesSummary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "https://inventory-backend-pi.vercel.app/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZGV2ZWxvcGVydG93aGlkQGdtYWlsLmNvbSIsImlhdCI6MTc1MTExOTc0NSwiZXhwIjoxNzUzNzExNzQ1fQ.fF4Mx3Z9bIVKQljOyJFh3stp9cWv1X-vag2116i1mdQ",
+			"type": "string"
+		}
+	]
+}

@@ -2,7 +2,7 @@ import React, {Fragment, useEffect, useState} from 'react';
 import {SalesListRequest} from "../../APIRequest/SaleAPIRequest";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {AiOutlineEdit, AiOutlineEye} from "react-icons/ai";
+import {AiOutlineEye} from "react-icons/ai";
 import ReactPaginate from "react-paginate";
 import CurrencyFormat from "react-currency-format";
 import moment from "moment/moment";
@@ -45,9 +45,9 @@ const SalesList = () => {
             row.style.display = (row.innerText.includes(e.target.value)) ? '' : 'none'
         })
     }
-    const DetailsPopUp = () => {
-    ErrorToast("Not yet added this function")
-    }
+    // const DetailsPopUp = () => {
+    //
+    // }
     return (
         <Fragment>
             <div className="container-fluid my-5">
@@ -98,12 +98,12 @@ const SalesList = () => {
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Other Cost</td>
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Discount</td>
                                                         <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</td>
-                                                        <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</td>
+                                                        {/*<td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</td>*/}
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     {
-                                                        DataList.map((item,i)=>
+                                                        [...DataList].reverse().map((item,i)=>
                                                             <tr key={i}>
                                                                 <td>
                                                                     <p className="text-xs text-start">{item.customers[0]['CustomerName']}</p>
@@ -144,11 +144,11 @@ const SalesList = () => {
                                                                     <p className="text-xs text-start">{moment(item.CreatedDate).format('MMMM Do YYYY')}</p>
                                                                 </td>
                                                                 
-                                                                <td>
-                                                                    <button onClick={()=>DetailsPopUp(item._id)} className="btn btn-outline-light text-success p-2 mb-0 btn-sm ms-2">
-                                                                        <AiOutlineEye size={15} />
-                                                                    </button>
-                                                                </td>
+                                                                {/*<td>*/}
+                                                                {/*    <button onClick={()=>DetailsPopUp(item._id)} className="btn btn-outline-light text-success p-2 mb-0 btn-sm ms-2">*/}
+                                                                {/*        <AiOutlineEye size={15} />*/}
+                                                                {/*    </button>*/}
+                                                                {/*</td>*/}
                                                             </tr>
                                                         )
                                                     }

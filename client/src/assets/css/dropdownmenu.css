@@ -3,7 +3,6 @@
     display: inline-block;
 }
 .user-dropdown-content {
-    display: none;
     position: absolute;
     background-color:#ffffff;
     width: 260px;

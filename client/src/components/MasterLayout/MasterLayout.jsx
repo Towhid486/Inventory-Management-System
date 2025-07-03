@@ -1,4 +1,4 @@
-import React, {Fragment, useRef} from 'react';
+import React, {Fragment, useRef, useState} from 'react';
 import {Accordion, Container, Navbar} from "react-bootstrap";
 import {
     AiOutlineBank,
@@ -16,10 +16,10 @@ import {TbTruckDelivery} from "react-icons/tb";
 import {IoCreateOutline} from "react-icons/io5";
 
 const MasterLayout = (props) => {
+    const [showOption, setShowOption] = useState(false)
 
     let contentRef,sideNavRef,topNavRef = useRef()
-
-
+    
     const MenuBarClickHandler = () => {
         let sideNav = sideNavRef;
         let content = contentRef;
@@ -277,10 +277,10 @@ const MasterLayout = (props) => {
                     
                     <div className="float-right h-auto d-flex align-items-center">
                         <div className="user-dropdown">
-                            <img className="icon-nav-img icon-nav" src={data['photo']} alt=""/>
-                            <div className="user-dropdown-content ">
+                            <img onClick={ () => setShowOption(prev => !prev)} className="icon-nav-img icon-nav cursor-pointer" src={data['photo']} alt=""/>
+                            <div className={`${showOption?"":"d-none"} user-dropdown-content`}>
                                 <div className="mt-4 text-center">
-                                    <img className="icon-nav-img" src={data['photo']} alt=""/>
+                                    <img className="icon-nav-img nav-img-border" src={data['photo']} alt=""/>
                                     <h6>{getUserDetails()['firstName']}</h6>
                                     <hr className="user-dropdown-divider  p-0"/>
                                 </div>
