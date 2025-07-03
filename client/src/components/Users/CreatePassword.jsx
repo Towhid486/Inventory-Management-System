@@ -32,8 +32,8 @@ const CreatePassword = () => {
         <Fragment>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-md-7 col-lg-6 center-screen">
-                        <div className="card w-75 p-4">
+                    <div className="col-12 col-md-8 col-lg-6 center-screen">
+                        <div className="card w-100 w-md-75 p-md-4">
                             <div className="card-body text-start">
                                 <h4 className='fw-semibold'>SET NEW PASSWORD</h4>
                                 <br />

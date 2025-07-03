@@ -63,7 +63,7 @@ const ExpenseTypeList = () => {
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-body">
-                                <div className="container-fluid">
+                                <div className="container-fluid padding-0">
                                     <div className="row">
                                         <div className="col-12">
                                             <h5 className="mb-3">Expense Type List</h5>

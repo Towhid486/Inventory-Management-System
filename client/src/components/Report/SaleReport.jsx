@@ -54,11 +54,11 @@ const SaleReport = () => {
                                 <h5 >Sales Report by Date</h5>
                                 <hr className="bg-light"/>
                                 
-                                <div className="col-4 p-2">
+                                <div className="col-6 col-md-4 p-2">
                                     <label className="form-label">Date From:</label>
                                     <input  ref={(input)=>formRef=input} className="form-control form-control-sm" type="date"/>
                                 </div>
-                                <div className="col-4 p-2">
+                                <div className="col-6 col-md-4 p-2">
                                     <label className="form-label">Date To:</label>
                                     <input  ref={(input)=>toRef=input} className="form-control form-control-sm" type="date"/>
                                 </div>
@@ -81,7 +81,7 @@ const SaleReport = () => {
                                         <div className="col">
                                             <h6>Total: {DataList[0]['Total'].length>0?<CurrencyFormat value={DataList[0]['Total'][0]['TotalAmount']} displayType={'text'} thousandSeparator={true} prefix={'$ '} />:0} </h6>
                                             <button onClick={()=>OnExport('csv',DataList[0]['Rows'])}  className="btn btn-sm my-2 btn-success">Download CSV</button>
-                                            <button onClick={()=>OnExport('xls',DataList[0]['Rows'])}   className="btn btn-sm my-2 ms-2 btn-success">Download XLS</button>
+                                            <button onClick={()=>OnExport('xls',DataList[0]['Rows'])}  className="btn btn-sm my-2 ms-sm-2 btn-success">Download XLS</button>
                                         </div>
                                     </div>
                                 </div>

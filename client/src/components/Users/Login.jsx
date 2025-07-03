@@ -26,8 +26,8 @@ const Login = () => {
         <Fragment>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-md-7 col-lg-6 center-screen">
-                        <div className="card w-75 p-4 shadow border-0 rounded-4">
+                    <div className="col-12 col-md-8 col-lg-6 center-screen">
+                        <div className="card w-100 p-md-4 shadow border-0 rounded-4">
                             <div className="card-body">
                                 <h3 className=''>SIGN IN</h3>
                                 <br/>

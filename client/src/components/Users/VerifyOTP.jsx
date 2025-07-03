@@ -12,10 +12,10 @@ const VerifyOTP = () => {
         MozAppearance:'textField',
         margin:'4px',
         paddingLeft:'8px',
-        width:'45px',
+        width:'36px',
         borderRadius:'3px',
-        height:'45px',
-        fontSize:'32px',
+        height:'40px',
+        fontSize:'27px',
         border:'1px solid lightskyblue',
         boxSizing:'border-box',
         color:'black',
@@ -41,8 +41,8 @@ const VerifyOTP = () => {
         <Fragment>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-md-7 col-lg-6 center-screen">
-                        <div className="card w-75 p-4">
+                    <div className="col-12 col-sm-8 col-md-7 center-screen">
+                        <div className="card w-100 w-lg-75 p-lg-3">
                             <div className="card-body text-start">
                                 <h4 className='fw-semibold'>OTP VERIFICATION</h4>
                                 <p>A 6 Digit Verification code has been sent to your email address.</p>

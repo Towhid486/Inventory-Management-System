@@ -25,7 +25,7 @@ const SendOTP = () => {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-7 col-lg-6 center-screen">
-                        <div className="card w-75 p-4">
+                        <div className="card w-100 w-lg-75 p-lg-3">
                             <div className="card-body text-start">
                                 <h4 className='fw-semibold'>EMAIL ADDRESS</h4>
                                 <br />
