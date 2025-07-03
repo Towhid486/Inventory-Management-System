@@ -53,35 +53,35 @@ const Profile = () => {
                 <div className="col-md-12">
                     <div className="card">
                         <div className="card-body">
-                            <div key={Date.now()} className="container-fluid">
+                            <div key={Date.now()} className="container-fluid padding-0">
                                 <img ref={(input) => (userImgView = input)} className="icon-nav-img-lg" src={ProfileData?.photo} alt=""/>
                                 <hr />
-                                <div className="row">
-                                    <div className="col-4 p-2">
+                                <div className="row justify-content-center justify-content-md-start">
+                                    <div className="col-12 col-md-4 p-2">
                                         <label>Profile Picture</label>
                                         <input onChange={PreviewImage} ref={(input) => (userImgRef = input)} placeholder="User Image" className="form-control animated fadeInUp" type="file" />
                                     </div>
-                                    <div className="col-4 p-2">
+                                    <div className="col-12 col-md-4 p-2">
                                         <label>Email Address</label>
                                         <input defaultValue={ProfileData?.email} readOnly={true} ref={(input) => (emailRef = input)} placeholder="User Email" className="form-control bg-dark-subtle animated fadeInUp" />
                                     </div>
-                                    <div className="col-4 p-2">
+                                    <div className="col-12 col-md-4 p-2">
                                         <label>First Name</label>
                                         <input defaultValue={ProfileData?.firstName} ref={(input) => (firstNameRef = input)} placeholder="First Name" className="form-control animated fadeInUp" type="text"/>
                                     </div>
-                                    <div className="col-4 p-2">
+                                    <div className="col-12 col-md-4 p-22">
                                         <label>Last Name</label>
                                         <input defaultValue={ProfileData?.lastName} ref={(input) => (lastNameRef = input)} placeholder="Last Name" className="form-control animated fadeInUp" type="text" />
                                     </div>
-                                    <div className="col-4 p-2">
+                                    <div className="col-12 col-md-4 p-2">
                                         <label>Mobile</label>
                                         <input defaultValue={ProfileData?.mobile} ref={(input) => (mobileRef = input)} placeholder="Mobile" className="form-control animated fadeInUp" type="mobile" />
                                     </div>
-                                    <div className="col-4 p-2">
+                                    <div className="col-12 col-md-4 p-2">
                                         <label>Password</label>
                                         <input  defaultValue={ProfileData?.password} ref={(input) => (passwordRef = input)} placeholder="User Password" className="form-control animated fadeInUp" type="password" />
                                     </div>
-                                    <div className="col-4 p-2">
+                                    <div className="col-6 col-md-4 p-2">
                                         <button onClick={UpdateProfile} className="btn w-100 float-end Btn-bg animated fadeInUp">Update</button>
                                     </div>
                                 </div>

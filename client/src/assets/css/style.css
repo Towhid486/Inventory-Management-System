@@ -57,3 +57,9 @@ td div {
   color: #0f111c!important;
   font-size: 14px!important;
 }
+
+@media (max-width: 500px) {
+  .padding-0{
+    padding: 0 !important;
+  }
+}
